@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Variables Practice</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 40px; 
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .box { 
+            border: 2px dashed #007bff; 
+            padding: 20px; 
+            border-radius: 8px; 
+            background-color: #e9f5ff; 
+            margin-bottom: 20px;
+        }
+        button { 
+            background: #28a745; 
+            color: white; 
+            border: none; 
+            padding: 12px 20px; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        button:hover { 
+            background: #218838; 
+            transform: scale(1.02);
+        }
+        #output { 
+            font-weight: bold; 
+            color: #d9534f; 
+            font-size: 24px; 
+        }
+        code {
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>📦 The "Box" Analogy for Variables</h1>
+        <p>Think of variables as physical boxes where your computer stores information to use later.</p>
+
+        <div class="box">
+            <h2>🎮 My Score Box (Using <code>let</code>)</h2>
+            <p>We created a variable called <code>myScore</code> using <code>let</code>. This means the box can be opened and the value inside can be changed!</p>
+            <p>Current Score inside the box: <span id="output">10</span></p>
+            <button onclick="increaseScore()">Level Up! (Add 5)</button>
+        </div>
+
+        <h3>🛠️ How to Practice on your Mac:</h3>
+        <ol>
+            <li>Right-click anywhere on this page and select <strong>"Inspect"</strong>.</li>
+            <li>Click on the <strong>"Console"</strong> tab at the top of the side panel that opens.</li>
+            <li>Click the "Level Up!" button above and watch what happens in the Console!</li>
+            <li>Try typing <code>myScore = 100</code> inside the console and press Enter, then click the button again!</li>
+        </ol>
+    </div>
+
+    <script>
+        // --- THIS IS JAVASCRIPT ---
+
+        // 1. Using 'let' (A box that can be changed)
+        // We put the Number 10 inside the 'myScore' box.
+        let myScore = 10; 
+
+        // 2. Using 'const' (A glued-shut box, cannot change)
+        // We put a String (Text) inside the 'myName' box.
+        const myName = "Nikhil"; 
+
+        // 3. Using a Boolean (True/False)
+        let isPlaying = true;
+
+        // This function runs every time you click the green button
+        function increaseScore() {
+            // We open the 'myScore' box, add 5, and put the new value back in.
+            myScore = myScore + 5; 
+            
+            // This updates the big red number on your screen
+            document.getElementById('output').innerText = myScore;
+            
+            // This prints a message to your Browser's Console (the developer's secret diary)
+            console.log(myName + " leveled up! The new score is: " + myScore);
+        }
+    </script>
+
+</body>
+</html>

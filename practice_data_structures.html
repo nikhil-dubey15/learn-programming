@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Data Structures Practice</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 40px; 
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .box { 
+            border: 2px solid #ddd; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin-bottom: 20px;
+        }
+        .array-box { border-color: #ff9800; background-color: #fff8e1; }
+        .object-box { border-color: #9c27b0; background-color: #f3e5f5; }
+        
+        button { 
+            color: white; 
+            border: none; 
+            padding: 10px 18px; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 15px; 
+            font-weight: bold;
+            transition: 0.2s;
+            margin-top: 10px;
+        }
+        .btn-array { background: #ff9800; }
+        .btn-array:hover { background: #f57c00; }
+        
+        .btn-object { background: #9c27b0; }
+        .btn-object:hover { background: #7b1fa2; }
+
+        .output { 
+            font-weight: bold; 
+            color: #d9534f; 
+            font-size: 20px; 
+            display: inline-block;
+            margin-left: 10px;
+        }
+        code {
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🗄️ Arrays & Objects (Organizing the Boxes)</h1>
+        <p>If simple variables are "boxes", then Data Structures are the shelves and cabinets we use to organize hundreds of boxes cleanly!</p>
+
+        <!-- ARRAY SECTION -->
+        <div class="box array-box">
+            <h2>📜 The Array (An Ordered List)</h2>
+            <p>An Array is just a list. Computers start counting at <strong>0</strong>.<br>
+            <code>const groceryList = ["Apples", "Bananas", "Milk"];</code></p>
+            
+            <p>What is at position 0? <span id="arrayOutput" class="output">???</span></p>
+            <button class="btn-array" onclick="getArrayItem()">Get groceryList[0]</button>
+        </div>
+
+        <!-- OBJECT SECTION -->
+        <div class="box object-box">
+            <h2>📇 The Object (The Key/Value Dictionary)</h2>
+            <p>An Object uses clear labels (Keys) instead of numbers.<br>
+            <code>const user = { name: "Nikhil", role: "QA" };</code></p>
+            
+            <p>What is the user's role? <span id="objectOutput" class="output">???</span></p>
+            <button class="btn-object" onclick="getObjectItem()">Get user.role</button>
+        </div>
+
+        <h3>🛠️ Practice in your Mac's Console:</h3>
+        <p>Let's combine them like real websites do! Follow these steps:</p>
+        <ol>
+            <li>Right-click anywhere and select <strong>"Inspect"</strong>, then click <strong>"Console"</strong>.</li>
+            <li>Copy and paste this into the console and press Enter:
+                <pre style="background:#222; color:#0f0; padding:10px; border-radius:5px;">
+const shoppingCart = [
+  { itemName: "Laptop", price: 1000 },
+  { itemName: "Mouse", price: 50 }
+];</pre>
+            </li>
+            <li>Now, type exactly this and press Enter to find the second item's name: 
+                <br><code>shoppingCart[1].itemName</code>
+            </li>
+        </ol>
+    </div>
+
+    <script>
+        // --- JAVASCRIPT ---
+
+        // 1. The Array (List)
+        const groceryList = ["Apples", "Bananas", "Milk"];
+
+        // 2. The Object (Dictionary)
+        const userProfile = {
+            name: "Nikhil",
+            role: "QA Engineer",
+            age: 25
+        };
+
+        function getArrayItem() {
+            // We ask for the FIRST item (position 0)
+            let item = groceryList[0]; 
+            document.getElementById('arrayOutput').innerText = item;
+            console.log("Array gave us: " + item);
+        }
+
+        function getObjectItem() {
+            // We strictly ask for the 'role' label inside 'userProfile'
+            let job = userProfile.role;
+            document.getElementById('objectOutput').innerText = job;
+            console.log("Object gave us: " + job);
+        }
+    </script>
+
+</body>
+</html>

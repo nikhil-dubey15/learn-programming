@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Control Flow Practice</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 40px; 
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .box { 
+            border: 2px solid #ddd; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin-bottom: 20px;
+        }
+        .ifelse-box { border-color: #e91e63; background-color: #fce4ec; }
+        .loop-box { border-color: #00bcd4; background-color: #e0f7fa; }
+        
+        button { 
+            color: white; 
+            border: none; 
+            padding: 10px 18px; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 15px; 
+            font-weight: bold;
+            transition: 0.2s;
+            margin-top: 10px;
+        }
+        .btn-ifelse { background: #e91e63; }
+        .btn-ifelse:hover { background: #c2185b; }
+        
+        .btn-loop { background: #00bcd4; }
+        .btn-loop:hover { background: #0097a7; }
+
+        .output { 
+            font-weight: bold; 
+            color: #333; 
+            font-size: 18px; 
+            display: block;
+            margin-top: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            min-height: 25px;
+        }
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+        
+        code {
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #d63384;
+        }
+        input {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            width: 80px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🧠 Control Flow (Giving the Computer a Brain)</h1>
+        <p>A computer only does exactly what we tell it. We use Control Flow to teach it how to make decisions and how to repeat boring tasks.</p>
+
+        <!-- IF/ELSE SECTION -->
+        <div class="box ifelse-box">
+            <h2>🍷 If / Else (The Club Bouncer)</h2>
+            <p>We ask the computer a `True/False` question. It chooses a path based on the answer.</p>
+            
+            <label>Enter your age: </label>
+            <input type="number" id="ageInput" value="16">
+            <button class="btn-ifelse" onclick="checkAge()">Try to enter the Club</button>
+            
+            <div id="bouncerOutput" class="output">Waiting for you to try...</div>
+        </div>
+
+        <!-- LOOPS SECTION -->
+        <div class="box loop-box">
+            <h2>🔁 Loops (The Repetitive Worker)</h2>
+            <p>Instead of writing code 100 times, we tell the computer to repeat it until a list is finished.</p>
+            <p><code>const names = ["Nikhil", "John", "Sarah"];</code></p>
+            
+            <button class="btn-loop" onclick="runLoop()">Say Hello to Everyone</button>
+            
+            <div id="loopOutput" class="output">Waiting to loop...</div>
+        </div>
+
+        <h3>🛠️ Practice in your Mac's Console:</h3>
+        <p>Let's simulate a password check!</p>
+        <ol>
+            <li>Right-click anywhere, select <strong>"Inspect"</strong>, then click <strong>"Console"</strong>.</li>
+            <li>Copy and paste this into the console and press Enter:
+                <pre style="background:#222; color:#0f0; padding:10px; border-radius:5px;">
+let myPassword = "wrongPassword";
+if (myPassword === "secret123") {
+  console.log("Welcome! Login Successful.");
+} else {
+  console.log("Access Denied.");
+}</pre>
+            </li>
+            <li>It prints "Access Denied". Press the <strong>Up Arrow</strong> on your keyboard, change `"wrongPassword"` to `"secret123"`, and press Enter again!</li>
+        </ol>
+    </div>
+
+    <script>
+        // --- JAVASCRIPT ---
+
+        // 1. If / Else
+        function checkAge() {
+            // Get the number the user typed in the box
+            let age = document.getElementById('ageInput').value;
+            let outputBox = document.getElementById('bouncerOutput');
+
+            // The Check!
+            if (age >= 18) {
+                outputBox.innerHTML = "<span class='success'>✅ Access Granted. Welcome to the club!</span>";
+                console.log("Decision: Granted entry. Age is " + age);
+            } else {
+                outputBox.innerHTML = "<span class='error'>❌ Access Denied. You are too young.</span>";
+                console.log("Decision: Denied entry. Age is " + age);
+            }
+        }
+
+        // 2. Loops
+        function runLoop() {
+            const names = ["Nikhil", "John", "Sarah"];
+            let outputBox = document.getElementById('loopOutput');
+            
+            // Clear the box first
+            outputBox.innerHTML = "";
+            console.log("--- Starting Loop ---");
+
+            // The 'for' Loop
+            // i starts at 0. It repeats as long as i is less than the number of names (3). i goes up by 1 each time.
+            for (let i = 0; i < names.length; i++) {
+                
+                let greeting = "Hello, " + names[i] + "!<br>";
+                
+                // Add the greeting to the screen
+                outputBox.innerHTML += greeting;
+                
+                // Print to the secret diary
+                console.log("Loop iteration " + i + ": Said hello to " + names[i]);
+            }
+        }
+    </script>
+
+</body>
+</html>
